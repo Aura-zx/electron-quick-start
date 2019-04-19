@@ -9,7 +9,7 @@ const currentWindow = require('electron').remote.getCurrentWindow()
   
 })*/
 document.getElementById('maxbt').addEventListener('click', () => {
-  console.log('hello vscode!')
+  console.log('max!')
   // ipc.send('window-max');
   if (currentWindow.isMaximized()) {
     currentWindow.unmaximize();
@@ -18,13 +18,17 @@ document.getElementById('maxbt').addEventListener('click', () => {
   }
 })
 document.getElementById('minbt').addEventListener('click', () => {
-  console.log('hello vscode!')
+  console.log('max !')
   // ipc.send('window-min');
   ipc.send('window-max')
-  
 })
 document.getElementById('closebt').addEventListener('click', () => {
-  console.log('hello vscode!')
+  console.log('close!')
   ipc.send('window-close');
   
+})
+currentWindow.on('resize', (event, listener)=>{
+  console.log(event)
+  // console.log(currentWindow.getSize())
+  console.log('resize trigger')
 })
